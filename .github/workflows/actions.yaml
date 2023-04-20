@@ -19,3 +19,8 @@ jobs:
         run: npm ci --save-dev
       - name: 'npm run build'
         run: npm run build
+      - name: store artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist
