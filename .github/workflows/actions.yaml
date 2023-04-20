@@ -1,0 +1,21 @@
+name: Build, Lint, Test, Deploy
+
+on:
+  workflow_dispatch:
+  push: 
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+" # eg. v123.1234.12
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: 'node + npm'
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'lts/Hydrogen'
+          cache: 'npm'
+      - name: 'npm ci'
+        run: npm ci --save-dev
+      - name: 'npm run build'
+        run: npm run build
