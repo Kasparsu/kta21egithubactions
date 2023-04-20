@@ -17,6 +17,8 @@ jobs:
           cache: 'npm'
       - name: 'npm ci'
         run: npm ci --save-dev
+      - name: eslint
+        run: npx eslint *.js
       - name: 'npm run build'
         run: npm run build
       - name: store artifact
@@ -24,3 +26,4 @@ jobs:
         with:
           name: dist
           path: dist
+      
