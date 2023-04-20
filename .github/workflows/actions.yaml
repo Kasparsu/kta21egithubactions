@@ -50,5 +50,5 @@ jobs:
           cache: 'npm'
       - name: 'npm ci'
         run: npm ci --save-dev
-      - name: eslint
+      - name: jest
         run: npx jest
