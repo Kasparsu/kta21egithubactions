@@ -59,5 +59,10 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: dist
-      - name: Display structure of downloaded files
-        run: ls -R
+      - name: Deploy to surge.sh
+        uses: dswistowski/surge-sh-action@v1
+        with:
+          domain: 'kaspariscool.surge.sh'
+          project: '.'
+          login: ${{ secrets.surge_login }}
+          token: ${{ secrets.surge_token }}
