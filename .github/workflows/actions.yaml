@@ -52,3 +52,11 @@ jobs:
         run: npm ci --save-dev
       - name: jest
         run: npx jest
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: dist
+      - name: Display structure of downloaded files
+        run: ls -R
